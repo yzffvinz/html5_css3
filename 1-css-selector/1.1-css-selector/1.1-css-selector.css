@@ -1,0 +1,31 @@
+html, body {
+  font-size: 16px;
+}
+
+li { list-style: none; }
+
+.btn-reset {
+  margin-left: .5rem;
+}
+.btn-reset:hover {
+  cursor: pointer;
+}
+
+.input-selector {
+  width: 9rem;
+}
+
+.display {
+  margin: 20px;
+  padding-left: 200px;
+}
+.operate-bar {
+  float: left;
+  width: 200px;
+}
+
+.display * {
+  border: 1px solid;
+  padding: 10px;
+}
+

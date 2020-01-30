@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Css Display Tool</title>
+  <link href="1.1-css-selector/1.1-css-selector.css" rel="stylesheet" type="text/css">
+  <script src="1.1-css-selector/vue.js"></script>
+</head>
+<body>
+<div id="app" class="operate-bar">
+  <h3>
+    CSS Display Tool
+    <img class="btn-reset" @click="resetStyle" src="1.1-css-selector/imgs/reset.png" width="14">
+  </h3>
+  <input class="input-selector" v-model="selectorName" type="text"/>
+  <button @click="highlightSelected">show</button>
+</div>
+<div class="display">
+  <div>
+    div
+    <p>div > p1</p>
+    <p>div > p2</p>
+    <ul>
+      ul
+      <li>
+        div > ul > li1
+        <p> div > ul > li1 > p1 </p>
+        <p> div > ul > li1 > p2 </p>
+      </li>
+      <li>div > ul > li2</li>
+      <li>div > ul > li3</li>
+      <li>div > ul > li4</li>
+    </ul>
+    <p>div > p3</p>
+    <p>div > p4</p>
+  </div>
+  <p>p1</p>
+  <p>p2</p>
+</div>
+<script>
+  const resetStyle = () => {
+    document.querySelectorAll('.display *').forEach(dom => {
+      dom.style = {}
+    })
+  }
+
+  const vm = new Vue({
+    el: '#app',
+    data () {
+      return {
+        selectorName: ''
+      }
+    },
+    methods: {
+      highlightSelected () {
+        try {
+          document.querySelectorAll(`.display>${this.selectorName}`).forEach(dom => {
+            dom.style.backgroundColor = 'lightblue'
+            dom.style.color = 'red'
+          })
+        } catch (e) {
+          alert('invalid selector!')
+        }
+      },
+      resetStyle () {
+        resetStyle()
+      }
+    },
+    created () {
+      document.onkeypress = (e) => {
+        e.key === 'Enter' && this.highlightSelected()
+      }
+    }
+  })
+</script>
+</body>
+</html>
