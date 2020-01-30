@@ -2,12 +2,11 @@ html, body {
   font-size: 16px;
 }
 
-li { list-style: none; }
-
 .btn-reset {
   margin-left: .5rem;
 }
-.btn-reset:hover {
+
+.btn:hover {
   cursor: pointer;
 }
 
@@ -19,9 +18,18 @@ li { list-style: none; }
   margin: 20px;
   padding-left: 200px;
 }
+
+.display li {
+  list-style: none;
+}
+
 .operate-bar {
   float: left;
   width: 200px;
+}
+
+.travel-item {
+  padding: 5px;
 }
 
 .display * {
