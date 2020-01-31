@@ -7,19 +7,11 @@
   <script src="../vue.js"></script>
 </head>
 <body>
-<div id="app" class="operate-bar">
-  <h3>
-    CSS Display Tool
-    <img class="btn-reset btn" @click="resetStyle" src="1.1-css-selector/imgs/reset.png" width="14">
-  </h3>
-  <input class="input-selector" v-model="selectorName" type="text"/>
-  <button @click="highlightSelected">show</button>
-  <div class="travels">
-    <div class="travel-item btn" v-for="(travel, index) in travels" @click="spaceTravel(index)">{{ index + 1 }}: {{
-      travel.selectorName }}
-    </div>
+<div id="app">
+  <div class="operate-bar">
+    <css-exec-app></css-exec-app>
+    <selector-basket :selectors="selectors"></selector-basket>
   </div>
-  <selector-basket :selectors="selectors"></selector-basket>
 </div>
 <div class="display">
   <div>
@@ -43,90 +35,19 @@
   <p>p1</p>
   <p>p2</p>
 </div>
-<script>
-  const resetStyle = () => {
-    document.querySelectorAll('.display *').forEach(dom => {
-      dom.style = {}
-    })
-  }
+<script type="module">
+  import CssExecApp from './1.1-css-selector/js/components/CssExecApp.js'
+  import SelectorBasket from './1.1-css-selector/js/components/SelectorBasket.js'
+  import selectors from './1.1-css-selector/js/data/cssSelectors.js'
 
-  const markSelected = (selectorName) => {
-    document.querySelectorAll(`.display ${selectorName}`).forEach(dom => {
-      dom.style.color = 'red'
-      dom.style.backgroundColor = 'lightblue'
-      // dom.style.opacity = dom.style.opacity ? +dom.style.opacity + .2 : .2
-    })
-  }
-
-  const SelectorBasket = {
-    props: ['selectors'],
-    template: `
-      <div>
-        <div v-for="(selector, index) in selectors">
-          <button @click="markSelected(selector)">choose</button>
-          <li style="display: inline;">{{ selector }}</li>
-        </div>
-      </div>
-    `,
-    methods: {
-      markSelected (selector) {
-        markSelected(selector)
-      }
-    }
-  }
-
-  const vm = new Vue({
+  new Vue({
     el: '#app',
-    components: { SelectorBasket },
     data () {
-      return {
-        selectorName: '',
-        travels: [],
-        travel: {
-          selectorName: '',
-          travels: []
-        },
-        selectors: [
-          '.name',
-          'div+p',
-          'p~ul',
-        ]
-      }
+      return { selectors }
     },
-    methods: {
-      highlightSelected () {
-        try {
-          if (this.selectorName.match(/^\s*$/)) {
-            throw new Error()
-          }
-          const selectorName = this.selectorName
-          markSelected(selectorName)
-          this.travels.push({ selectorName })
-
-          this.selectorName = ''
-        } catch (e) {
-          alert('invalid selector!')
-        }
-      },
-      spaceTravel (index) {
-        resetStyle()
-        this.travels.some((travel, i) => {
-          markSelected(travel.selectorName)
-          return i >= index
-        })
-      },
-      resetStyle () {
-        this.selectorName = ''
-        this.travels = []
-        resetStyle()
-      }
-    },
-    created () {
-      document.onkeypress = (e) => {
-        e.key === 'Enter' && this.highlightSelected()
-      }
-    }
+    components: { CssExecApp, SelectorBasket }
   })
+
 </script>
 </body>
 </html>
