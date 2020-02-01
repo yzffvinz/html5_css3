@@ -4,6 +4,7 @@ html, body {
 
 .btn-reset {
   margin-left: .5rem;
+  vertical-align: text-bottom;
 }
 
 .btn:hover {
@@ -11,10 +12,11 @@ html, body {
 }
 
 .input-selector {
-  width: 9rem;
+  width: 5.5rem;
+  border-radius: .3rem;
 }
 
-.operate-bar {
+.sidebar {
   float: left;
   width: 200px;
 }
@@ -38,8 +40,6 @@ html, body {
 
 .travel-item {
   padding: 5px;
-  font-size: .8rem;
-  font-weight: bold;
 }
 
 .display * {

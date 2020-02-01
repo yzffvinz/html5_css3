@@ -1,18 +1,24 @@
-import { markSelected } from '../util/selector.js'
+import selectors from '../data/cssSelectors.js'
 
 const SelectorBasket = {
-  props: ['selectors'],
   template: `
       <div>
-        <div v-for="(selector, index) in selectors">
-          <button @click="markSelected(selector)">choose</button>
-          <li style="display: inline;">{{ selector }}</li>
+        <h4>Selectors Basket</h4>
+        <div v-for="(selectorName, index) in selectors">
+          <button @click="markSelected(selectorName)">choose</button>
+          <li style="display: inline;">{{ selectorName }}</li>
         </div>
       </div>
     `,
+  data() {
+    return {
+      selectors
+    }
+  },
   methods: {
-    markSelected (selector) {
-      markSelected(selector)
+    markSelected (selectorName) {
+      console.log(selectorName)
+      this.$store.commit('mark', selectorName)
     }
   }
 }

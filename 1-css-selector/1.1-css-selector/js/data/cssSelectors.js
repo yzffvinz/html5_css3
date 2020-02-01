@@ -1,7 +1,7 @@
 const cssSelectors = [
-  '.name',
-  'div+p',
-  'p~ul'
+  'div>ul',
+  'div>p',
+  'div+p'
 ]
 
 export default cssSelectors
