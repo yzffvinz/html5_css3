@@ -2,6 +2,10 @@ html, body {
   font-size: 16px;
 }
 
+body {
+  padding: 1rem;
+}
+
 .btn-reset {
   margin-left: .5rem;
   vertical-align: text-bottom;
@@ -12,29 +16,28 @@ html, body {
 }
 
 .input-selector {
-  width: 5.5rem;
   border-radius: .3rem;
 }
 
 .sidebar {
   float: left;
-  width: 200px;
+  width: 640px;
 }
 
 .display {
   margin: 20px;
-  padding-left: 200px;
+  padding-left: 640px;
+  min-width: 600px;
 }
 
 .display li {
   list-style: none;
 }
 
-.travals {
+.travels {
   display: flex;
   flex-direction: column-reverse;
   margin: 15px;
-  max-height: 300px;
   overflow: auto;
 }
 
@@ -45,5 +48,14 @@ html, body {
 .display * {
   border: 1px solid;
   padding: 10px;
+}
+
+.il-bl {
+  display: inline-block;
+  float: left;
+}
+
+input {
+  width: 300px;
 }
 

@@ -11,16 +11,24 @@
 <div id="app">
   <div class="sidebar">
     <h3>CSS Display Tool</h3>
+    <p style="font-weight: bold; color: red;" v-html>{{ notice }}</p>
     <operate-bar></operate-bar>
     <selector-basket></selector-basket>
     <travel-list></travel-list>
   </div>
 </div>
+
 <div class="display">
   <div>
-    div
+    <p class="intro">&lt;p class=&quot;intro&quot;&gt;&lt;/p&gt;</p>
+    <input id="firstname" disabled value="&lt;input id=&quot;firstname&quot; disabled /&gt;"/>
     <p>div > p1</p>
+    <a href="" target="_blank">&lt;a href=&quot;&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;</a>
     <p>div > p2</p>
+    <div title="1 flower 1">&lt;div title=&quot;1 flower 1---&quot;&gt;&lt;/div&gt;</div>
+    <div lang="en-1">&lt;div lang=&quot;en-1&quot;&gt;&lt;/div&gt;</div>
+    <div lang="en 1">&lt;div lang=&quot;en 1&quot;&gt;&lt;/div&gt;</div>
+    <div lang="en">&lt;div lang=&quot;en&quot;&gt;&lt;/div&gt;</div>
     <ul>
       ul
       <li>
