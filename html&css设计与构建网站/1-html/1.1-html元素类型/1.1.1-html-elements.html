@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>html元素类型</title>
+  <style>
+    html, body {
+      font-size: 16px;
+    }
+
+    .wrapper {
+      min-height: 300px;
+    }
+
+    .wrapper *:not(h2) {
+      margin: 20px;
+      padding: 5px;
+      border: 1px solid;
+      width: 200px;
+      height: 200px;
+    }
+
+    .il-bl {
+      display: inline-block;
+    }
+
+    a {
+      font-size: 2rem;
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <h2>块元素</h2>
+  <div>div</div>
+  <p>p</p>
+</div>
+<div class="wrapper">
+  <h2>行内/内联 元素</h2>
+  <h2></h2>
+  <a href="#">a</a>
+  <span>span</span>
+</div>
+
+<div class="wrapper">
+  <h2>行内块元素</h2>
+  display: inline-block;
+  <h2></h2>
+  <span class="il-bl">span>span1</span>
+  <span class="il-bl">span>span2</span>
+</div>
+
+<div class="wrapper">
+  <h2>替换元素</h2>
+  所谓替换元素就是根据元素内相关属性的不同，浏览器会有不同的解析展现。
+  比如input元素、img元素或者iframe元素等。
+  input会根据type属性值的不同会有不同的展现，img会根据src属性值的不同也会有不同的展现。
+  可以看到这些元素都是空元素，没有实际内容。
+  <h2></h2>
+  <input type="date">
+  <input type="text">
+</div>
+
+</body>
+</html>
