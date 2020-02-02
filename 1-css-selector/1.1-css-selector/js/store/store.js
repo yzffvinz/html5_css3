@@ -8,8 +8,9 @@ const store = new Vuex.Store({
   mutations: {
     mark(state, selectorName) {
       try {
-        if(selectorName.match(/^\s*$/)) {
-          throw new Error()
+        selectorName = selectorName.trim()
+        if (!selectorName || selectorName.startsWith(',') || selectorName.match(/,{2,}/)) {
+          throw new Error('invalid selector')
         }
         if (state.index !== -1) {
           state.travels = state.travels.slice(0, state.index + 1)
