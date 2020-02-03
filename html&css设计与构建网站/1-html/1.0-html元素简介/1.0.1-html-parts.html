@@ -1,15 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>html元素组成</title>
   <style>
+    * {
+      margin: 0 auto;
+    }
+
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .center {
+      height: 400px;
+
+    }
+
     p {
-      font-size: 2rem;
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
+
+    .tag {
+      color: red;
+    }
+
+    .attr {
+      color: blueviolet;
+    }
+
+    .content {
+      color: brown;
+    }
+
+    ol>li {
+      font-size: 1.2rem;
+      font-weight: bold;
     }
   </style>
+
 </head>
+
 <body>
-  <p id="id">&lt;p id=&quot;id&quot;&gt;内容&lt;/p&gt;</p>
+  <div class="center">
+    <p id="id">&lt;<span class="tag">p</span> <span class="attr">id=&quot;id&quot;</span>&gt;<span
+        class="content">内容</span>&lt;<span class="tag">/p</span>&gt;</p>
+    <ol>
+      <li class="tag">标签：元素的种类</li>
+      <li class="attr">特性名称：特性名称 + 特性值</li>
+      <li class="content">内容：可以是文本，可以使其他元素</li>
+    </ol>
+  </div>
 </body>
+
 </html>
