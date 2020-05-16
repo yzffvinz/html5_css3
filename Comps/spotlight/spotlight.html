@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Spot Light</title>
+  <style>
+    html {
+      font-size: 15px;
+    }
+
+    /* flex容器 */
+    body {
+      background-color: #222;
+      display: flex;
+      /* 容器内元素排布方式： flex-start, flex-end, center, space-between, space-around	*/
+      justify-content: center;
+      /* flex子项在flex容器当前行的侧轴的对齐方式 */
+      align-items: center;
+      /* 高度为100% */
+      min-height: 100vh;
+
+      position: relative;
+    }
+
+    h1 {
+      color: #333;
+      font-family: Helvetica;
+      margin: 0;
+      padding: 0;
+      width: 800px;
+      font-size: 8rem;
+      letter-spacing: -0.3rem; /* 字距 */
+      /* 使用relative，子元素可以相对于此进行移位 */
+      position: relative;
+    }
+
+    h1::after {
+      content: attr(data-spolight);
+      color: transparent;
+      position: absolute;
+      top: 0;
+      left: 0;
+      animation: spotlight 5s infinite;
+      background-image: url("spotlight-bg.jpg");
+      background-size: 150%;
+      background-position: center center;
+      -webkit-background-clip: text;
+    }
+
+    @keyframes spotlight {
+      0% {
+        clip-path: ellipse(150px 100px at 15% 50%);
+      }
+
+      50% {
+        clip-path: ellipse(150px 100px at 85% 50%);
+      }
+
+      100% {
+        clip-path: ellipse(150px 100px at 15% 50%);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1 data-spolight="Just do it later">Just do it</h1>
+</body>
+</html>
