@@ -3,8 +3,7 @@
 ## 2020-05
 
 ### Spotlight： [聚光灯](https://www.bilibili.com/video/BV16E411N7Ru "spotlight")
-
-[🎈](. /Comps/spotlight)
+ [🎈](. /Comps/spotlight "spotlight")
 
 #### 布局
 
