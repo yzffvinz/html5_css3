@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .title {
+      text-align: center;
+    }
+    .container > div {
+      box-sizing: border-box;
+      float: left;
+      width: 33.3%;
+      padding: 10px;
+      text-align: justify;
+    }
+    /* 清除浮动1，伪类after设置为block，并设置clear: both */
+    .container::after {
+      content: '';
+      clear: both;
+      display: block;
+    }
+
+    /* Blocking Formatting Context：块级可视化上下文 */
+    .container {
+      overflow: hidden;       /* 方案1：设置overflow为任何值 */
+      display: flow-root;     /* 方案2：设置display为flow-root，但是目前浏览器支持并不好，所有ie都不支持 */
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="title">
+    <h1>特师诗三句</h1>
+  </div>
+  <div class="container">
+    <div class="left">
+      有一段时间我们仰卧河底，在另一个角度看时光流淌。你将所有的远方称为河流。
+    </div>
+    <div class="middle">
+      2006年夏天我去了一趟泰国，在海边坐了一个礼拜每天盯着大海看，当时感觉有上帝。我发现世界原来是空白的，上帝拿了个缸还是脸盆往下一倒，就出现了景物：海，地平线，云，气流，这些东西混合在一起缓缓晃动。回国以后我马上感觉没有上帝了，只有祖国。
+    </div>
+    <div class="right">
+      茶汤溅在褐色的地板上
+      你起身，披一条床单
+      走到阳台上
+      你看见：星辰混在一趟绿皮火车里远去
+    </div>
+  </div>
+  <div class="clearfix">
+    清除浮动效果展示区
+  </div>
+</body>
+
+</html>

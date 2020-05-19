@@ -131,6 +131,41 @@
    </style>
    ```
 
-   
+### CSS：float
 
-   
+#### 整体内容
+
+1. 清除浮动的方式
+2. BFC（Blocking Formatting Context：块级可视化上下文）简介
+
+#### 属性
+
+1. 清除浮动的方式
+
+   - 使用伪类
+
+   ```css
+   .container::after {
+       content: '';
+       clear: both;	/* 清除两侧浮动 */
+       display: block; /* 设置伪类为块级作用域 */
+   }
+   ```
+
+   - BFC
+     - float不是none
+
+   ```css
+   .container {
+       /* 下面两个方案2选1，但是方案2在ie浏览器不支持 */
+       overflow: hidden;       /* 方案1：设置overflow为除了visiable的任何值 */
+       display: flow-root;     /* 方案2：设置display为flow-root */
+   }
+   ```
+
+#### 概念
+
+1. BFC（Blocking Formatting Context：块级可视化上下文）
+
+
+
