@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BFC Test</title>
+    <style>
+        /* 高度塌陷 */
+        .height {
+            border: 1px solid;
+            /* 创建bfc的方式如下 */
+            /* display: flex; */
+            display: flow-root;
+
+        }
+
+        .one-left {
+            float: left;
+            height: 100px;
+            border: 1px solid;
+        }
+
+        .one-right {
+            border: 1px solid;
+        }
+
+        .height::after {
+            content: 'after'
+        }
+
+        /* margin collapsing */
+        .margin {
+            /* overflow: hidden; */
+            /* position: relative; */
+        }
+
+        .margin>div {
+            /* display: inline-block; */
+            /* float: left; */
+            position: absolute;
+            height: 50px;
+            width: 100%;
+            border: 1px solid;
+        }
+
+        .son1 {
+            margin-bottom: 50px;
+        }
+
+        .son2 {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="height">
+        <div class="one-left">
+            left
+        </div>
+        <div class="one-right">
+            right
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="margin">
+        <div class="son1">
+            margin-bottom: 50px;
+            height: 50px;
+        </div>
+        <div class="son2">
+            margin-top: 50px;
+            height: 50px;
+        </div>
+    </div>
+
+    <hr />
+</body>
+
+</html>

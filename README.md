@@ -133,10 +133,13 @@
 
 ### CSS：float
 
+- 实现内容：Basic/float
+
 #### 整体内容
 
-1. 清除浮动的方式
-2. BFC（Blocking Formatting Context：块级可视化上下文）简介
+1. float会使div的宽度最小化（默认最大化）
+2. 清除浮动的方式
+3. BFC（Blocking Formatting Context：块级可视化上下文）简介
 
 #### 属性
 
@@ -166,6 +169,25 @@
 #### 概念
 
 1. BFC（Blocking Formatting Context：块级可视化上下文）
+
+   ​		块格式化上下文对浮动定位（参见 [`float`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/float)）与清除浮动（参见 [`clear`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/clear)）都很重要。浮动定位和清除浮动时只会应用于同一个BFC内的元素。浮动不会影响其它BFC中元素的布局，而清除浮动只能清除同一BFC中在它前面的元素的浮动。外边距折叠（[Margin collapsing](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing)）也只会发生在属于同一BFC的块级元素之间。
+
+   - 创建方式
+
+     - 无副作用，但是支持性一般```display: flow-root;```
+     - ```overflow```设置为`visible`之外的其他属性`auto`、`hidden`
+     - 绝对定位元素```position:absolute;```或```position: fixed;```
+
+     - 全部方式详见[MDN](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context)
+
+   - 解决的问题
+
+     - div高度塌陷（见float.html中的`.height`）
+     - 外边距塌陷`margin collapsing`（见float.html中的`margin`）
+
+#### 疑惑
+
+1. 解决外边距塌陷的问题
 
 
 
