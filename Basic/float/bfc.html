@@ -29,19 +29,19 @@
             content: 'after'
         }
 
-        /* margin collapsing */
+        /* margin collapsing 1 */
         .margin {
-            /* overflow: hidden; */
+            overflow: hidden;
             /* position: relative; */
         }
 
-        .margin>div {
-            /* display: inline-block; */
-            /* float: left; */
-            position: absolute;
+        .son-wrapper {
+            display: flow-root;
+        }
+
+        .son1, .son2 {
             height: 50px;
             width: 100%;
-            border: 1px solid;
         }
 
         .son1 {
@@ -50,6 +50,22 @@
 
         .son2 {
             margin-top: 50px;
+        }
+
+        /*  */
+        .wrapper {
+            display: flow-root;
+            /* border: 1px solid; */
+        }
+
+        .top {
+            margin-bottom: 50px;
+            /* border: 1px solid; */
+        }
+
+        .bottom {
+            margin-top: 50px;
+            /* border: 1px solid; */
         }
     </style>
 </head>
@@ -67,17 +83,28 @@
     <hr />
 
     <div class="margin">
-        <div class="son1">
-            margin-bottom: 50px;
-            height: 50px;
+        <div class="son-wrapper">
+            <div class="son1">
+                margin-bottom: 50px;
+                height: 50px;
+            </div>
         </div>
-        <div class="son2">
-            margin-top: 50px;
-            height: 50px;
+        <div class="son-wrapper">
+            <div class="son2">
+                margin-top: 50px;
+                height: 50px;
+            </div>
         </div>
     </div>
 
     <hr />
+
+    <div class="wrapper">
+        <div class="top">TOP</div>
+    </div>
+    <div class="wrapper">
+        <div class="bottom">BOTTOM</div>
+    </div>
 </body>
 
 </html>
