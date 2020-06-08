@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+</head>
+<body>
+    <div class="grand">
+        <div class="papa">
+            <div class="son">
+                <ul class="gifts">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        function addEvent(selector, callback) {
+            document.querySelector(selector).addEventListener('click',  function(e) {
+                console.log(e);
+                console.log(e.target);
+                alert(selector);
+                callback && callback(e);
+            });    
+        }
+        addEvent('.gifts', function(e) {
+            e.preventDefault();
+        });
+        addEvent('.son');
+        addEvent('.papa');
+        addEvent('.grand');
+        addEvent('.grand', function() {
+            console.log(1);
+        });
+        
+    </script>
+</body>
+</html>
