@@ -30,6 +30,20 @@ th, td {
     padding: .5em;
 }
 
+.intro {
+    font-weight: bold;
+    font-size: 1.4em;    
+}
+
+.raw {
+    color: lightblue;
+}
+
+/* h1 + * {
+    font-weight: bold;
+    font-size: 1.4em;   
+} */
+
 /* tr:nth-child(odd) {
     background-color: #ffc;
 }

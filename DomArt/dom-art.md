@@ -62,6 +62,37 @@ css不方便的时候，使用js。个人认为一些动态场景更适合这样
 - element.style
 - element.className
 
+#### Trick有关添加样式的抽象
+
+##### 获取邻居并且添加给定样式函数
+
+```js
+function styleTagNextSiblings(tagName, className) {
+    if (!document.getElementsByTagName) return false;
+    var elems = document.getElementsByTagName(tagName);
+    var elem;
+    for (var i = 0; i < elems.length; i++) {
+        addClass(elems[i].nextElementSibling, className)
+    }
+}
+```
+
+##### 对addClass也进行了抽象
+
+```js
+function addClass(elem, className) {
+    if (elem) {
+        if (elem.className) {
+            elem.className += (' ' + className);
+        } else {
+            elem.className = className;
+        }
+    }
+}
+```
+
+
+
 ## Trick
 
 ### 可复用函数
@@ -171,7 +202,22 @@ function displayAccessKeys() {
 
 #### 添加斑马线
 
+##### Css3
+
+```css
+/* css3可以按照如下写 */
+tr:nth-child(odd) {
+    background-color: #ffc;
+}
+tr:nth-child(even) {
+    background-color: #fff;
+}
+```
+
+##### 降级方案
+
 ```js
+/* 降级方案 */
 function addStripeOnTable() {
     var trs = document.getElementsByTagName('tr');
     for (var i = 0; i < trs.length; i++) {
@@ -218,4 +264,84 @@ function displayAbbreevaiations() {
     document.body.appendChild(dl);
 }
 ```
+
+#### hover的降级方案
+
+##### css3
+
+```css
+tr:hover {
+    font-weight: bold;
+}
+```
+
+##### 降级方案
+
+```js
+function highlightRows() {
+    if (!document.getElementsByTagName) return false;
+    var rows = document.getElementsByTagName('tr');
+    for (var i = 0; i < rows.length; i++) {
+        rows[i].onmouseover = function() {
+            this.style.fontWeight = 'bold';
+        }
+        rows[i].onmouseout = function() {
+            this.style.fontWeight = 'normal';
+        }
+    }
+}
+```
+
+#### 为特定元素添加class（这里给h1后的一个元素添加class或者样式）
+
+##### css方案
+
+```css
+h1 + * {
+    font-weight: bold;
+    font-size: 1.4em;   
+}
+```
+
+
+
+##### js方案1（这样会覆盖原有class）
+
+```js
+// add class on dom after h1
+function addClassAfterH1() {
+    if (!document.getElementsByTagName) return false;
+    var h1s = document.getElementsByTagName('h1');
+    var elem;
+    for (var i = 0; i < h1s.length; i++) {
+        elem = h1s[i].nextElementSibling;
+        if (elem) elem.className = 'intro';
+    }
+}
+```
+
+
+
+##### js方案2（加class）
+
+```js
+// add class on dom after h1
+function addClassAfterH1() {
+    if (!document.getElementsByTagName) return false;
+    var h1s = document.getElementsByTagName('h1');
+    var elem;
+    for (var i = 0; i < h1s.length; i++) {
+        elem = h1s[i].nextElementSibling;
+        if (elem) {
+            if (elem.className) {
+                elem.className += ' intro';
+            } else {
+                elem.className = 'intro';
+            }
+        }
+    }
+}
+```
+
+
 
