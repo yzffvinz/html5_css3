@@ -93,6 +93,11 @@ function addClass(elem, className) {
 
 
 
+### 10. Js动效
+
+1. 一直对`elem.style.left` 或 `elem.style.top`进行改变，实现动画效果
+2. 使用`overflow: hidden`，
+
 ## Trick
 
 ### 可复用函数

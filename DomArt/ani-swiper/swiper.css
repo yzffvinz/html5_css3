@@ -1,0 +1,92 @@
+html, body {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+}
+
+.stage {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.view {
+    position: relative;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    white-space: nowrap;
+}
+
+.swiper-wrapper:hover {
+    animation: move 1s 1;
+}
+
+.swiper-item {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+}
+
+.item1 {
+    background-color: red;
+}
+
+.item2 {
+    background-color: blue;
+}
+
+.item3 {
+    background-color: green;
+}
+
+@keyframes move
+{   
+    0%
+    {
+        left: 0px;
+    }
+    100%
+    {
+        left: -200px;
+    }
+}
+
+/* 
+.main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+} */
+
+/* .myWindow {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border: 1px solid;
+} */
+
+/* .swiper-wrapper {
+    margin-left: -600px;
+    position: relative;
+    white-space: nowrap;
+    height: 200px;
+    animation: first 2s infinite;
+}
+
+
+
+@keyframes second
+{
+    to {left: 200px;}
+}
+
+@keyframes third
+{
+    to {left: 400px;}
+}
