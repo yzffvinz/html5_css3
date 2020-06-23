@@ -12,17 +12,18 @@ html, body {
     justify-content: center;
 }
 
-.view {
+.swiper {
     position: relative;
     overflow: hidden;
     width: 200px;
     height: 200px;
-    background-color: red;
     white-space: nowrap;
 }
 
-.swiper-wrapper:hover {
-    animation: move 1s 1;
+.items-wrapper {
+    position: absolute;
+    width: 600px;
+    height: 200px;
 }
 
 .swiper-item {
@@ -43,50 +44,26 @@ html, body {
     background-color: green;
 }
 
-@keyframes move
+@keyframes first
 {   
-    0%
+    100%
     {
         left: 0px;
     }
+}
+
+@keyframes second
+{   
     100%
     {
         left: -200px;
     }
 }
 
-/* 
-.main {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-items: center;
-    align-items: center;
-} */
-
-/* .myWindow {
-    display: inline-block;
-    width: 200px;
-    height: 200px;
-    border: 1px solid;
-} */
-
-/* .swiper-wrapper {
-    margin-left: -600px;
-    position: relative;
-    white-space: nowrap;
-    height: 200px;
-    animation: first 2s infinite;
-}
-
-
-
-@keyframes second
-{
-    to {left: 200px;}
-}
-
 @keyframes third
-{
-    to {left: 400px;}
+{   
+    100%
+    {
+        left: -400px;
+    }
 }

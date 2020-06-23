@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Item With TextNode</title>
+    <style>
+        /* .flex-cont {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width: 400px;
+            height: 200px;
+            border: 1px solid;
+        }
+        .flex-cont strong {
+            min-height: 200px;
+        }
+
+        em {
+            min-height: 200px;
+        } */
+        .flex-cont {
+            display: flex;
+            width: 400px;
+            height: 200px;
+            border: 1px solid green;
+        }
+        .flex-cont > * {
+            border: 1px solid lightblue;
+        }
+        .c1 {
+            flex: 1 0 300px;
+        }
+        .c2 {
+            flex: 1 0 200px;
+        }
+        .c3 {
+            flex: 1 0 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-cont">
+        <div class="c1">aaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+        <div class="c2">bbbbbbbbbbbbbbbbb</div>
+        <div class="c3">cccccccccccccccccccc</div>
+    </div>
+</body>
+</html>
