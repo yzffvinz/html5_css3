@@ -1,0 +1,31 @@
+html, body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .wrap {
+    height: 500px;
+    overflow: scroll;
+} */
+
+.container {
+    box-sizing: border-box;
+    overflow: scroll;
+    height: 500px;
+    width: 200px;
+    border: 1px solid;
+    padding-top: -50px;
+}
+
+.item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+.item-odd {
+    background-color: lightblue;
+}

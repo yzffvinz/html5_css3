@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>overflow - float</title>
+    <style>
+        .content {
+            margin-left: 300px;
+            width: 500px;
+            height: 500px;
+        }
+        .div1 {
+            border: 1px solid;
+            width: 200px;
+        }
+
+        .bg-red {
+            background-color: red;
+            border: 1px solid;
+        }
+
+        .float {
+            margin-left: -30px;
+            height: 300px;
+            background-color: #fff;
+            float: left;
+            border: 1px solid;
+        }
+
+
+
+        .clear {
+            clear: left;
+        }
+
+        .clear > * {
+            border: 1px solid;
+        }
+
+        .left {
+            float: left;
+        }
+        
+        .right {
+            float: right;;
+        }
+
+        .text {
+            clear: both;
+            float: left;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="div1 bg-red">
+            <div class="float">
+                1234123
+            </div>
+            <span style="margin-left: -20px; border: 1px solid;">
+                span
+            </span>
+            <h3>
+                say somethingsay
+            </h3>
+        </div>
+        <div class="clear">
+            <div class="left">left</div>
+            <div class="text">text</div>
+            <div class="right">right</div>
+        </div>
+    </div>
+</body>
+</html>
